@@ -25,6 +25,7 @@
         color: green;
         font-weight: bold;
       }
+      p:last-child {margin-bottom: 0;}
       a.cta {
         display: inline-block;
         text-transform: uppercase;
@@ -61,19 +62,19 @@
 
         <p>I led the development team on this project, and most of my programming time was spent on the general framework, animations, responsiveness, audio player and singing session audio capture/scoring.  We decided to roll our own framework, given the lack of data involved. The app is single-page, and all of the transition animations are implemented using a global GreenSock timeline.  Icons are SVG.  Audio snippets use an audio spriting technique.  The beats for the jam session and the note durations for the singing session were captured using a tool I made where I could "perform" the songs manually using the spacebar.  I transcribed the singing session pitches with a piano.  The Jam Session visualization was built in canvas by another team member using frequency data I pulled from the tracks with the Web Audio API.  <a target="_blank" href="https://thecuttingedge.bobdylan.com/data/lars.json">You can see one of the datasets here</a>.</p>
         <p>This is a fairly experimental app and the singing/jam sessions only work in modern browsers that support Web Audio.  The jam session is a pared down experience on mobile devices.</p>
-        <a class="cta" href="http://thecuttingedge.bobdylan.com" target="_blank">Launch</a>
+        <p><a class="cta" href="http://thecuttingedge.bobdylan.com" target="_blank">Launch</a></p>
       </article>
       <article>
         <h2><a href="./tones/" target="_blank">2. IBM Australian Open Tone Analyzer</a></h2>
         <p>Notable Tech: React, Redux, ES6, Webpack, D3</p>
         <p>This app showed the "tone" of Twitter users throughout The 2016 Australian Open.  While the example uses dummy data (note that you cannot change any matches), the live version polled continuously updated services, so the user would see the widget update itself in realtime. I used Webpack hot reloading with react/redux for speedy development.</p>
         <p>This isn't really a responsive widget, as it fit inside a non-responsive website, however it works on mobile devices.</p>
-        <a class="cta" href="./tones/" target="_blank">Launch</a>
+        <p><a class="cta" href="./tones/" target="_blank">Launch</a></p>
       </article>
       <article>
         <h2><a href="./tetris/" target="_blank">3. DOM Tetris</a></h2>
         <p>This is a really old pet project done in vanilla JavaScript, but I love how it turned out.  It also ended up on <a href="https://techcrunch.com/2011/07/12/tc-logo-tetris/" target="_blank">TechCrunch</a>.</p>
-        <a class="cta" href="./tetris/" target="_blank">Launch</a>
+        <p><a class="cta" href="./tetris/" target="_blank">Launch</a></p>
       </article>
     </section>
   </body>
