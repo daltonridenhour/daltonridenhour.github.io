@@ -1,0 +1,71 @@
+<!DOCTYPE html><html lang="en-US"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="robots" content="index,follow"><meta name="viewport" content="width=device-width, initial-scale=1"><style>body {
+  margin: 0;
+  padding: 20px;
+}
+#main {
+  position: relative;
+  margin: 0px auto;
+}
+
+iframe {
+  width: 320px;
+  height: 418.5px;
+  border: none;
+  margin-top: 10px;
+}
+
+#message-test {
+}
+
+.inputoutput {
+  overflow: hidden;
+}
+.left,.right {
+  float: left;
+  width: 250px;
+  height: 70px;
+}
+.right {
+  width: 800px;
+  overflow: scroll;
+}
+#messagereceived {
+  margin: 0;
+}
+.frame {
+  float: left;
+  margin-right: 10px;
+}
+.frame h2 {
+  margin-bottom: 10px;
+}
+iframe {
+  width: 320px;
+  height: 418.5px;
+}
+iframe#tone-analyzer-desktop {
+  width: 300px;
+  height: 418.5px;
+}
+input {
+  border: 1px solid black;
+}</style></head><body><div id="main"><div id="message-test"><h3>IFrame Post Message Test</h3><div class="inputoutput"><div class="left"><input type="text" id="testinput"><button id="testsend">SEND</button></div><div class="right"><p id="messagereceived"></p></div></div></div><div class="frame"><h2>Mobile (320px) </h2><iframe id="tone-analyzer-mobile" src="/tone-analyzer?player_id=wta230234&amp;device=mobile"></iframe></div><div class="frame"><h2>Desktop (300px) </h2><iframe id="tone-analyzer-desktop" src="/tone-analyzer?player_id=wta230234&amp;device=desktop"></iframe></div><div class="frame"><h2>Active Update Test</h2><iframe id="tone-analyzer-mobile" src="/tone-analyzer?player_id=wta230234&amp;device=mobile&amp;testActiveLoad=true"></iframe></div><div class="frame"><h2>Not Enough Data w/PlayerID</h2><iframe id="tone-analyzer-nodata" src="/tone-analyzer?player_id=atpg710&amp;device=mobile"></iframe></div><div class="frame"><h2>Bad API Calls for tones</h2><iframe id="tone-analyzer-noparams" src="/tone-analyzer?player_id=wta230234&amp;badapi=true"></iframe></div><div class="frame"><h2>Invalid PlayerID</h2><iframe id="tone-analyzer-invalidplayerid" src="/tone-analyzer?player_id=asfdjksf&amp;device=desktop"></iframe></div><div class="frame"><h2>No Parameters</h2><iframe id="tone-analyzer-noparams" src="/tone-analyzer"></iframe></div><script>function receiveMessage(event) {
+  var receivedEl = document.querySelector('#messagereceived');
+  receivedEl.innerHTML = 'Type: ' + event.data.type + '<br />Data:' + JSON.stringify(event.data.data);
+}
+window.addEventListener("message", receiveMessage, false);
+
+var input = document.querySelector('#testinput');
+var button = document.querySelector('#testsend');
+var iframe = document.querySelector('#tone-analyzer-desktop');
+
+button.addEventListener('click', function() {
+  var value = input.value;
+  iframe.contentWindow.postMessage({
+    type:'from-the-input',
+    data:{
+      message:'This is the value you chose in the form!',
+      value:value
+    }
+  }, window.location.origin);
+});</script></div></body></html>
